@@ -1,0 +1,34 @@
+<br/>
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.text_field :user,
+    class:"form-control", placeholder:"User" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :rental_peiod %>
+    <%= form.date_select :rental_peiod ,
+    class:"form-control" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.text_field :note,
+    class:"form-control", placeholder:"Note" %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>
